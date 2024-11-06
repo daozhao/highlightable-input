@@ -94,6 +94,10 @@ export function setup(
       updateHTML(false, value)
       return true
     },
+    setHighlight(newHighlight:HighlightRule | Array<HighlightRule> ):boolean {
+      highlight = newHighlight
+      return true
+    },
     setSelection(offsets: SelectOffsets, options?: SelectOptions) {
       setSelection(el, offsets, options)
     },

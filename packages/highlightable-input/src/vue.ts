@@ -82,6 +82,16 @@ export default defineComponent({
       }
     )
 
+    watch(
+      () => [props.highlight],
+      (newValue) => {
+        console.log('highlight changed', newValue,typeof(newValue),props.highlight)
+        input.value?.setHighlight(newValue[0])
+        //Highlight = newValue
+        input.value?.refresh()
+      }
+    )
+
     function setValue(value: string) {
       input.value?.setValue(value)
     }
