@@ -9,7 +9,7 @@ import {
   onBeforeUnmount,
   computed
 } from 'vue'
-import { setup, type HighlightableInput, type SetupOptions } from './index'
+import { setup, type HighlightableInput, type SetupOptions,type HighlightRule } from './index'
 
 export default defineComponent({
   props: {
@@ -86,7 +86,7 @@ export default defineComponent({
       () => [props.highlight],
       (newValue) => {
         console.log('highlight changed', newValue,typeof(newValue),props.highlight)
-        input.value?.setHighlight(newValue[0])
+        input.value?.setHighlight(newValue[0] as HighlightRule | Array<HighlightRule>)
         //Highlight = newValue
         input.value?.refresh()
       }
